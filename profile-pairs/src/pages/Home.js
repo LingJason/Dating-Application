@@ -1,3 +1,5 @@
+import Navbar from "../components/Navbar";
+
 export default function Home() {
 
   const authToken = true;
@@ -9,7 +11,7 @@ export default function Home() {
   return (
     <div className="home">
       <h1>Personality Pairs</h1>
-      <button className="home-button" onClick={handleClick}>
+      <button className="primary-button" onClick={handleClick}>
         {authToken ? "Signout" : "Create Account"}
       </button>
     </div>

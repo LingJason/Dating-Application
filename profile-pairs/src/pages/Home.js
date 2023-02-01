@@ -9,11 +9,14 @@ export default function Home() {
   }
 
   return (
+  <>
+  <Navbar authToken={authToken} />
     <div className="home">
       <h1>Personality Pairs</h1>
-      <button className="primary-button" onClick={handleClick}>
-        {authToken ? "Signout" : "Create Account"}
-      </button>
+      <button className="primary-button"
+        onClick={handleClick}> {
+        authToken ? "Signout" : "Create Account"
+      } </button>
     </div>
-  )
+  </>)
 };

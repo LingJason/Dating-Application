@@ -1,6 +1,12 @@
-export default function AuthModal() {
+export default function AuthModal(props) {
+
+  const handleClick = () => {
+    props.setShowModal(false);
+  }
   
   return (
-    <div>AuthModal</div>
+    <div className="auth-modal">
+      <div onClick={handleClick}>quit</div>
+    </div>
   )
 };

@@ -26,3 +26,15 @@ nav {
   justify-content: space-between;
   width: 100%; 
 }
+
+nav .logo-container {
+  width: 170px;
+  margin: 15px;
+
+}
+
+nav .logo-container .logo {
+  width: 100%;
+}
+
+/* Home Page */

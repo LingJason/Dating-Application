@@ -5,7 +5,7 @@ export default function Navbar(props) {
   return (
     <nav>
       <div className="logo-container">
-        <img className="logo" src={Logo}/>
+        {/* <img className="logo" src={Logo}/> */}
       </div>
       {!props.authToken && <button className="nav-button">Login</button>}
     </nav>

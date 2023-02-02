@@ -10,6 +10,7 @@ export default function Home() {
 
   return (
   <>
+  <div className="overlay">
   <Navbar authToken={authToken} />
     <div className="home">
       <h1>Personality Pairs</h1>
@@ -17,6 +18,7 @@ export default function Home() {
         onClick={handleClick}> {
         authToken ? "Signout" : "Create Account"
       } </button>
+    </div>
     </div>
   </>)
 };

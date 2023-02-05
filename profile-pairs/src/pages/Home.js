@@ -19,7 +19,6 @@ export default function Home() {
   <>
   <div className="overlay">
   <Navbar 
-    authToken={authToken}  
     showModal ={showModal} 
     setShowModal={setShowModal}
     setIsSignedUp={setIsSignedUp} />

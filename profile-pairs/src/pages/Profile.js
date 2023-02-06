@@ -20,15 +20,15 @@ export default function Profile() {
   }
 
   const handleChange = (event) => {
-    const value = event.target.value;
-    const name = e.target.name;
-    console.log(`value` + value + `name` + name)
+    const value = event.target.type === "checkbox" ? event.target.checked : event.target.value;
+    const name = event.target.name;
+
     setFormData((prevState) => ({
       ...prevState,
       [name]: value
     }))
   }
-
+ 
   return (<>
     <Navbar showModal={false}
       setShowModal={
@@ -59,38 +59,44 @@ export default function Profile() {
 
           <label>Gender</label>
           <div className="multiple-input">
+
             <input id="male" type="radio" name="gender"
               value={"male"}
-              checked={false}
+              checked={formData.gender === "male"}
               onChange={handleChange}/>
             <label htmlFor="male-gender">Male</label>
+
             <input id="female" type="radio" name="gender"
               value={"female"}
-              checked={false}
+              checked={formData.gender === "female"}
               onChange={handleChange}/>
             <label htmlFor="female-gender">Female</label>
+
             <input id="LGBTQ2Q+" type="radio" name="gender"
               value={"LGBTQ2Q+"}
-              checked={false}
+              checked={formData.gender === "LGBTQ2Q+"}
               onChange={handleChange}/>
             <label htmlFor="LGBTQ2Q+">LGBTQ2Q+</label>
           </div>
 
           <label>Show Me</label>
           <div className="multiple-input-container">
-            <input id="male_interest" type="radio" name="gender"
+
+            <input id="male-interest" type="radio" name="gender_interest"
               value={"male"}
-              checked={false}
+              checked={formData.gender_interest === "male"}
               onChange={handleChange}/>
             <label htmlFor="male-interest">Male</label>
-            <input id="female_interest" type="radio" name="gender"
+
+            <input id="female-interest" type="radio" name="gender_interest"
               value={"female"}
-              checked={false}
+              checked={formData.gender_interest === "female"}
               onChange={handleChange}/>
             <label htmlFor="female-interest">Female</label>
-            <input id="LGBTQ2Q+_interest" type="radio" name="gender"
+
+            <input id="LGBTQ2Q+-interest" type="radio" name="gender_interest"
               value={"LGBTQ2Q+"}
-              checked={false}
+              checked={formData.gender_interest === "LGBTQ2Q+"}
               onChange={handleChange}/>
             <label htmlFor="LGBTQ2Q+-interest">LGBTQ2Q+</label>
           </div>
@@ -119,7 +125,7 @@ export default function Profile() {
             required={true}/>
 
           <div className="photo-container"></div>
-            <img src={formData.url} alt="profile pic preview"/>
+            <img src={formData.url} alt="profile picture preview"/>
         </section>
       </form>
     </div>

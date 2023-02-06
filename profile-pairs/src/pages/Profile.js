@@ -125,8 +125,40 @@ export default function Profile() {
             required={true}
             placeholder="Anything interesting you would like others to know"
             value={""}
-            onchange={handleChange}
+            onChange={handleChange}
           />
+          <input type="submit"/>
+      </section>
+
+      <section>
+
+      <label htmlFor="profile_pics">Profile Pictures #1</label>
+      <input
+        type="url"
+        name="pp"
+        id="pp1"
+        onChange={handleChange}
+        required={true}
+      />
+    <label htmlFor="profile_pics">Profile Pictures #2</label>
+      <input
+        type="url"
+        name="pp"
+        id="pp2"
+        onChange={handleChange}
+        required={true}
+      />
+    <label htmlFor="profile_pics">Profile Pictures #3</label>
+      <input
+        type="url"
+        name="pp"
+        id="pp3"
+        onChange={handleChange}
+        required={true}
+      />
+        <div className="photo-container">
+
+        </div>
       </section>
       </form>
     </div>

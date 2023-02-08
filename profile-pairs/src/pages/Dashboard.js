@@ -49,6 +49,10 @@ export default function Dashboard() {
           </TinderCard>
         )}
 
+        <div className="swipe-info">
+          {lastDirection ? <p> You Swiped {lastDirection}</p> : <p/> }
+        </div>
+
         </div>
       </div>
     </div>

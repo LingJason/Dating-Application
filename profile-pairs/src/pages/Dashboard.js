@@ -6,23 +6,19 @@ import { useState } from "react"
 const db = [
   {
     name: 'Richard Hendricks',
-    url: './img/richard.jpg'
+    url: 'https://expertphotography.b-cdn.net/wp-content/uploads/2020/07/candid-photography-3.jpg'
   },
   {
     name: 'Erlich Bachman',
-    url: './img/erlich.jpg'
-  },
-  {
-    name: 'Monica Hall',
-    url: './img/monica.jpg'
+    url: 'http://www.picturecorrect.com/wp-content/uploads/2012/04/candid-photo2.jpg'
   },
   {
     name: 'Jared Dunn',
-    url: './img/jared.jpg'
+    url: 'https://www.adweek.com/files/2015_May/iStock-Unfinished-Business-6.jpg'
   },
   {
     name: 'Dinesh Chugtai',
-    url: './img/dinesh.jpg'
+    url: 'https://www.nerdwallet.com/assets/blog/wp-content/uploads/2020/07/GettyImages-482534949-770x462.jpg'
   }
 ]
 
@@ -46,7 +42,7 @@ export default function Dashboard() {
         <div className="card-container">
 
         {characters.map((character) =>
-          <TinderCard className='swipe' key={character.name} onSwipe={(dir) => swiped(dir, character.name)} onCardLeftScreen={() => outOfFrame(character.name)}>
+          <TinderCard className="swipe" key={character.name} onSwipe={(dir) => swiped(dir, character.name)} onCardLeftScreen={() => outOfFrame(character.name)}>
             <div style={{ backgroundImage: 'url(' + character.url + ')' }} className='card'>
               <h3>{character.name}</h3>
             </div>

@@ -1,5 +1,6 @@
 import TinderCard from "react-tinder-card"
 import { useState } from "react"
+import ChatContainer from "../components/ChatContainer"
 
 
 
@@ -38,6 +39,7 @@ export default function Dashboard() {
 
   return (
     <div className="dashboard">
+      <ChatContainer/>
       <div className="swiper-container">
         <div className="card-container">
 

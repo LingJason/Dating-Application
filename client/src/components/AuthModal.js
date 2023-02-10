@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
+import { useCookies } from "react-cookie";
 import { useNavigate } from "react-router-dom";
 
 export default function AuthModal(props) {
@@ -8,6 +9,7 @@ export default function AuthModal(props) {
   const [password, setPassword] = useState(null);
   const [confirmPassword, setConfirmPassword] = useState(null);
   const [error, setError] = useState(null);
+  const [cookies, setCookies, removeCookies] = useCookies(["user"]);
 
   const nav = useNavigate()
 
@@ -23,6 +25,10 @@ export default function AuthModal(props) {
         return
       }
       const response = await axios.post('http://localhost:8000/signup', {email, password})
+
+      setCookies("AuthToken", response.data.token)
+      setCookies("Email", response.data.email)
+      setCookies("UserId", response.data.userId)
 
       if (response.status === 201) nav("/profile")
     }

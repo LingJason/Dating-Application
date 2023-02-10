@@ -9,7 +9,7 @@ export default function AuthModal(props) {
   const [confirmPassword, setConfirmPassword] = useState(null);
   const [error, setError] = useState(null);
 
-  const nav = useNavigate
+  const nav = useNavigate()
 
   const handleClick = () => {
     props.setShowModal(false);
@@ -24,7 +24,7 @@ export default function AuthModal(props) {
       }
       const response = await axios.post('http://localhost:8000/signup', {email, password})
 
-      if (response.status == 201) nav("/profile")
+      if (response.status === 201) nav("/profile")
     }
     catch(err) {
       console.log(err.message)

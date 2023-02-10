@@ -24,13 +24,14 @@ export default function AuthModal(props) {
         setError("Passwords do not match!")
         return
       }
-      const response = await axios.post('http://localhost:8000/signup', {email, password})
+      const response = await axios.post(`http://localhost:8000/${props.isSignUp ? 'signup' : 'login'}`, {email, password})
 
       setCookies("AuthToken", response.data.token)
       setCookies("Email", response.data.email)
       setCookies("UserId", response.data.userId)
 
-      if (response.status === 201) nav("/profile")
+      if (response.status === 201 && props.isSignUp) nav("/profile")
+      if (response.status === 201 && !props.isSignUp) nav("/dashboard")
     }
     catch(err) {
       console.log(err.message)

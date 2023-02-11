@@ -6,7 +6,9 @@ export default function Profile() {
   const [formData, setFormData] = useState({
     user_id: "",
     first_name: "",
-    dob: "",
+    dob_day: "",
+    dob_month: "",
+    dob_year: "",
     gender: "",
     gender_interest: "",
     email: "",
@@ -28,7 +30,7 @@ export default function Profile() {
       [name]: value
     }))
   }
- 
+
   return (<>
     <Navbar showModal={false}
       setShowModal={
@@ -42,19 +44,41 @@ export default function Profile() {
           <label htmlFor="first_name">First Name</label>
           <input id="first_name" type="text" name="first_name" placeholder="First Name"
             required={true}
-            value={formData.first_name}
+            value={
+              formData.first_name
+            }
             onChange={handleChange}/>
 
           <label>Last Name</label>
           <input id="last_name" type="text" name="last_name" placeholder="Last Name"
             required={true}
-            value={formData.last_name}
+            value={
+              formData.last_name
+            }
             onChange={handleChange}/>
 
-          <label>Date of Birth</label>
-          <input id="dob" type="text" name="dob" placeholder="Date of Birth"
+          <label>Day</label>
+          <input id="dob_day" type="number" name="dob_day" placeholder="Day"
             required={true}
-            value={formData.dob}
+            value={
+              formData.dob_day
+            }
+            onChange={handleChange}/>
+
+          <label>Month</label>
+          <input id="dob_month" type="number" name="dob_month" placeholder="Month"
+            required={true}
+            value={
+              formData.dob_month
+            }
+            onChange={handleChange}/>
+
+          <label>Year</label>
+          <input id="dob_year" type="number" name="dob_year" placeholder="Year"
+            required={true}
+            value={
+              formData.dob_year
+            }
             onChange={handleChange}/>
 
           <label>Gender</label>
@@ -62,19 +86,25 @@ export default function Profile() {
 
             <input id="male" type="radio" name="gender"
               value={"male"}
-              checked={formData.gender === "male"}
+              checked={
+                formData.gender === "male"
+              }
               onChange={handleChange}/>
             <label htmlFor="male-gender">Male</label>
 
             <input id="female" type="radio" name="gender"
               value={"female"}
-              checked={formData.gender === "female"}
+              checked={
+                formData.gender === "female"
+              }
               onChange={handleChange}/>
             <label htmlFor="female-gender">Female</label>
 
             <input id="LGBTQ2Q+" type="radio" name="gender"
               value={"LGBTQ2Q+"}
-              checked={formData.gender === "LGBTQ2Q+"}
+              checked={
+                formData.gender === "LGBTQ2Q+"
+              }
               onChange={handleChange}/>
             <label htmlFor="LGBTQ2Q+">LGBTQ2Q+</label>
           </div>
@@ -84,19 +114,25 @@ export default function Profile() {
 
             <input id="male-interest" type="radio" name="gender_interest"
               value={"male"}
-              checked={formData.gender_interest === "male"}
+              checked={
+                formData.gender_interest === "male"
+              }
               onChange={handleChange}/>
             <label htmlFor="male-interest">Male</label>
 
             <input id="female-interest" type="radio" name="gender_interest"
               value={"female"}
-              checked={formData.gender_interest === "female"}
+              checked={
+                formData.gender_interest === "female"
+              }
               onChange={handleChange}/>
             <label htmlFor="female-interest">Female</label>
 
             <input id="LGBTQ2Q+-interest" type="radio" name="gender_interest"
               value={"LGBTQ2Q+"}
-              checked={formData.gender_interest === "LGBTQ2Q+"}
+              checked={
+                formData.gender_interest === "LGBTQ2Q+"
+              }
               onChange={handleChange}/>
             <label htmlFor="LGBTQ2Q+-interest">LGBTQ2Q+</label>
           </div>
@@ -105,7 +141,9 @@ export default function Profile() {
           <input id="about" type="text" name="about"
             required={true}
             placeholder="Anything interesting you would like others to know"
-            value={formData.about}
+            value={
+              formData.about
+            }
             onChange={handleChange}/>
           <input type="submit"/>
         </section>
@@ -125,7 +163,10 @@ export default function Profile() {
             required={true}/>
 
           <div className="photo-container"></div>
-            <img src={formData.url} alt="profile picture preview"/>
+          <img src={
+              formData.url
+            }
+            alt="profile picture preview"/>
         </section>
       </form>
     </div>

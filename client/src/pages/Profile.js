@@ -1,17 +1,19 @@
 import React, {useState} from "react";
 import Navbar from "../components/Navbar";
+import { useCookies } from "react-cookie";
 
 export default function Profile() {
 
+  const [cookies, setCookies, removeCookies] = useCookies(["user"]);
   const [formData, setFormData] = useState({
-    user_id: "",
+    user_id: cookies.userId,
     first_name: "",
     dob_day: "",
     dob_month: "",
     dob_year: "",
     gender: "",
     gender_interest: "",
-    email: "",
+    email: cookies.email,
     url: "",
     about: "",
     matches: []

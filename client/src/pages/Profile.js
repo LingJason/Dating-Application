@@ -6,14 +6,12 @@ export default function Profile() {
 
   const [cookies, setCookies, removeCookies] = useCookies(["user"]);
   const [formData, setFormData] = useState({
-    user_id: cookies.userId,
     first_name: "",
     dob_day: "",
     dob_month: "",
     dob_year: "",
     gender: "",
     gender_interest: "",
-    email: cookies.email,
     url: "",
     about: "",
     matches: []

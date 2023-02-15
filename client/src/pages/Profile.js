@@ -1,6 +1,8 @@
 import React, {useState} from "react";
 import Navbar from "../components/Navbar";
 import {useCookies} from "react-cookie";
+import axios from "axios";
+import { useNavigate } from "react-router-dom"
 
 export default function Profile() {
 
@@ -18,8 +20,21 @@ export default function Profile() {
     matches: []
   })
 
-  const handleSubmit = () => {
+  let nav = useNavigate()
+
+  const handleSubmit = async (event) => {
     console.log("handle Submit");
+    event.preventDefault()
+
+    try {
+      const response = await axios.put('http://localhost:8000/user', { formData })
+      if (response.status === 200) {
+        nav("/dashboard")
+      }
+    } catch (err) {
+      console.log(err.message)
+    }
+
   }
 
   const handleChange = (event) => {

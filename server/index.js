@@ -110,11 +110,11 @@ app.put('/users', async (req, res) => {
         url: formData.url,
         about: formData.about,
         matches: formData.matches
-      }
+      },
     }
     const insertedUser = await users.updateOne(query, updateDocument)
     res.send(insertedUser)
-    
+
   } finally {
     await client.close()
   }

@@ -1,11 +1,12 @@
 import React, {useState} from "react";
 import Navbar from "../components/Navbar";
-import { useCookies } from "react-cookie";
+import {useCookies} from "react-cookie";
 
 export default function Profile() {
 
   const [cookies, setCookies, removeCookies] = useCookies(["user"]);
   const [formData, setFormData] = useState({
+    user_id: cookies.UserId,
     first_name: "",
     dob_day: "",
     dob_month: "",
@@ -162,11 +163,14 @@ export default function Profile() {
             onChange={handleChange}
             required={true}/>
 
-          <div className="photo-container"></div>
-          <img src={
-              formData.url
+          <div className="photo-container"> 
+          {
+            formData.url && <img src={
+                formData.url
+              }
+              alt="profile picture preview"/>
             }
-            alt="profile picture preview"/>
+           </div>
         </section>
       </form>
     </div>

@@ -27,6 +27,7 @@ export default function AuthModal(props) {
       const response = await axios.post(`http://localhost:8000/${props.isSignUp ? 'signup' : 'login'}`, {email, password})
 
       setCookies("AuthToken", response.data.token)
+      setCookies("UserId", response.data.userId)
 
       if (response.status === 201 && props.isSignUp) nav("/profile")
       if (response.status === 201 && !props.isSignUp) nav("/dashboard")

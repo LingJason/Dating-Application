@@ -46,7 +46,7 @@ export default function Dashboard() {
 
   useEffect(() => {
     getUser()
-  }, [user])
+  }, [])
   const characters = db
   const [lastDirection, setLastDirection] = useState()
 

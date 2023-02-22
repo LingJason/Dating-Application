@@ -31,6 +31,8 @@ export default function AuthModal(props) {
 
       if (response.status === 201 && props.isSignUp) nav("/profile")
       if (response.status === 201 && !props.isSignUp) nav("/dashboard")
+
+      window.location.reload();
     }
     catch(err) {
       console.log(err.message)

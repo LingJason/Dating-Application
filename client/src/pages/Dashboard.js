@@ -61,7 +61,7 @@ export default function Dashboard() {
 
   return (
     <div className="dashboard">
-      <ChatContainer/>
+      <ChatContainer user={props.user}/>
       <div className="swiper-container">
         <div className="card-container">
 

@@ -25,6 +25,7 @@ const db = [
 export default function Dashboard() {
 
   const [user, setUser] = useState(null)
+  const [genderedUsers, setGenderedUsers] = useState(null)
   const [cookies, setCookie, removeCookie] = useState(['users'])
 
   const userId = cookies.UserId
@@ -41,8 +42,20 @@ export default function Dashboard() {
     }
   }
 
+  const getGenderedUsers = async () => {
+    try {
+      const response = await axios.get('http://localhost:8000/gender-users', {
+        params: { gender: user?.gender_interest}
+      })
+      setGenderedUsers(response.data)
+    } catch (err) {
+      console.log(err.message)
+    }
+  } 
+
   useEffect(() => {
     getUser()
+    getGenderedUsers()
   }, [])
   const characters = db
   const [lastDirection, setLastDirection] = useState()

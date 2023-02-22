@@ -1,4 +1,16 @@
+import { useCookies} from 'react-cookie';
+
 export default function ChatHeader(props) {
+  const [ cookies, setCookie, removeCookie ] = useCookies(['user'])
+
+  const logout = () => {
+    removeCookie('UserId', cookies.UserId)
+    removeCookie('AuthToken', cookies.AuthToken)
+    window.location.reload()
+  }
+
+
+
   return (
     <div className="chat-header-container">
       <div className="profile">
@@ -7,7 +19,7 @@ export default function ChatHeader(props) {
         </div>
         <h3>{props.user.first_name}</h3>
       </div>
-      <i className="log-out-icon">LogOut</i>
+      <i className="log-out-icon" onClick={logout}>LogOut</i>
     </div>
   )
 };

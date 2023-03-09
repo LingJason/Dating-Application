@@ -2,8 +2,11 @@ const express = require('express');
 const {MongoClient} = require('mongodb');
 const {v4: uuidv4} = require('uuid');
 const jwt = require('jsonwebtoken');
-const bcrypt = require('bcrypt')
-const uri = 'mongodb+srv://JasonLing:<password>@cluster0.et00qef.mongodb.net/?retryWrites=true&w=majority';
+const bcrypt = require('bcrypt');
+require('dotenv').config();
+
+const uri = process.env.URI
+
 const cors = require('cors');
 const app = express();
 const PORT = 8000;

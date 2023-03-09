@@ -19,7 +19,7 @@ export default function Matches(props) {
 
   useEffect(() => {
     getMatches()
-  }, [])
+  }, [props.matches])
 
   return (
     <div className="matches-container">

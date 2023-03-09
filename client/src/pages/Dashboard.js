@@ -40,8 +40,13 @@ export default function Dashboard() {
 
   useEffect(() => {
     getUser();
-    getGenderedUsers();
-  }, [user, genderedUsers]);
+  }, []);
+
+  useEffect(() => {
+    if (user) {
+      getGenderedUsers();
+    }
+  }, [user]);
 
   const updateMatches = async (matchedUserId) => {
     try {

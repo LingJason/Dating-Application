@@ -191,5 +191,26 @@ app.get('/users', async (req, res) => {
 })
 
 
+// Messages
+
+app.get('/messages', async(req, res) => {
+  const client = new MongoClient(uri)
+  const { userId, correspondingUserId } = req.query
+ try{
+  await client.connect()
+  const database = client.db('Profile-Pairs')
+  const messages = database.collection('messages')
+
+  const query = {
+    from_userId: userId, to_userId: correspondingUserId
+  }
+  const foundMessages = await messages.find(query).toArray()
+  res.send(foundMessages) 
+ } finally {
+  await client.close()
+ }
+})
+
+
 
 app.listen(PORT, () => console.log('Server running on PORT ' + PORT))

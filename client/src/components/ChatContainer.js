@@ -9,10 +9,14 @@ export default function ChatContainer(props) {
     <div className="chat-container">
       <ChatHeader user ={props.user}/>
       <div>
-        <button className="option">Matches</button>
-        <button className="options">Chat</button>
+        <button className="option" onClick={() => setClickedUser(null)}>Matches</button>
+        <button className="options" disabled={!clickedUser}>Chat</button>
       </div>
-      <Matches matches={props.user.matches} setClickedUser={setClickedUser}/>
+      
+      {!clickedUser && <Matches matches={props.user.matches} setClickedUser={setClickedUser}/>}
+
+
+      {clickedUser && <ChatMessage user={props.user} clickedUser={clickedUser}/>}
 
     </div>
   )

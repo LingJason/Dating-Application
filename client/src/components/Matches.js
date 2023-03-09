@@ -24,7 +24,7 @@ export default function Matches(props) {
   return (
     <div className="matches-container">
       {matchedProfiles?.map((match, _index) => (
-        <div key={{_index}} className="match-card" onClick={setClickedUser(match)}>
+        <div key={{_index}} className="match-card" onClick={() => props.setClickedUser(match)}>
           <div className='img-container'>
             <img src={match?.url} alt={match?.first_name + 'profile'}/>
           </div>

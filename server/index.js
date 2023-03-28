@@ -5,7 +5,7 @@ const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
 require('dotenv').config();
 
-const uri = process.env.URI
+const uri = process.env.URI;
 
 const cors = require('cors');
 const app = express();
@@ -18,6 +18,7 @@ app.get('/', (req, res) => {
   res.json('Hello World')
 })
 
+// Login to Database
 app.post('/login', async (req, res) => {
   const client = new MongoClient(uri)
   const {email, password} = req.body
@@ -26,7 +27,8 @@ app.post('/login', async (req, res) => {
     await client.connect()
     const database = client.db('Profile-Pairs')
     const users = database.collection('users')
-
+    console.log("HERE", email)
+    console.log("HERE1", password)
     const user = await users.findOne({email})
     const correctPassword = await bcrypt.compare(password, user.hashed_password)
 
@@ -38,9 +40,13 @@ app.post('/login', async (req, res) => {
     }
     res.status(400).send('Invalid Information')
   } catch (err) {
+    console.log("CATCH")
     console.log(err.messsage)
+  } finally {
+    await client.close()
   }
 })
+
 
 app.post('/signup', async (req, res) => {
   const client = new MongoClient(uri)
@@ -75,6 +81,8 @@ app.post('/signup', async (req, res) => {
     res.status(201).json({ token, userId: generatedUserId })
   } catch (err) {
     console.log(err.message)
+  } finally {
+    await client.close()
   }
 })
 
@@ -85,7 +93,7 @@ app.get('/user', async (req, res) => {
 
   try {
     await client.connect()
-    const database = client.db('app-data')
+    const database = client.db('Profile-Pairs')
     const users = database.collection('users')
 
     const query = { user_id: userId }
@@ -113,7 +121,7 @@ app.get('/gendered-users', async (req, res) => {
 })
 
 
-app.put('/users', async (req, res) => {
+app.put('/user', async (req, res) => {
   const client = new MongoClient(uri)
   const formData = req.body.formData
   try {

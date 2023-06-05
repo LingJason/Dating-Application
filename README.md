@@ -6,7 +6,7 @@ This project was created using React for the front-end,Node.js and express for t
 ## Final Product
 
 ### Overview
-![Overview](https://github.com/LingJason/Task-Management-Application/blob/main/docs/Create.gif)
+![Overview](https://github.com/LingJason/Dating-Application/blob/main/docs/dating-application.gif)
 
 ## Running the application
 

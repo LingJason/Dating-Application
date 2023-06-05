@@ -1,85 +1,343 @@
 /* Basic Structure */
+/* Uber color #2fbf77 */
+
 
 html, body {
-  margin: 0;
-  padding: 0;
+    margin: 0;
+    padding: 0;
+    text-align: center;
 }
 
-body {
-  text-align: center;
+h2 {
+    font-style: italic;
+}
+
+* {
+    font-family: 'Readex Pro', sans-serif;
+}
+
+.primary-title {
+    font-size: 90px;
+    color: rgb(255, 255, 255);
 }
 
 .primary-button {
-  color: #fff;
-  background-color: #000000;
-  border: none;
-  border-radius: 30px;
-  padding: 12px 30px;
-  text-transform: capitalize;
-  font-size: 15px;
+    color: rgb(255,255,255);
+    text-transform: uppercase;
+    font-size: 15px;
+    background: #2fbf77;
+    padding: 12px 30px;
+    border-radius: 30px;
+    border: none;
 }
 
-/* Navbar */
+.primary-button:hover {
+    background: #2fbf77;
+}
+
+.secondary-button {
+    color: rgb(121, 119, 119);
+    background-color: rgb(255, 255, 255);
+    font-weight: 500;
+    font-size: 15px;
+    text-transform: uppercase;
+    padding: 12px 30px;
+    border-radius: 30px;
+    border: solid 2px rgb(121, 119, 119);
+    margin: 6px;
+}
+
+.secondary-button:hover {
+    color: rgb(48, 48, 48);
+    border: solid 2px rgb(48, 48, 48);
+}
+
+
+/*-------- Navbar --------*/
 
 nav {
-  display: flex;
-  justify-content: space-between;
-  width: 100%; 
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.nav-button {
+    font-size: 20px;
+    padding: 10px 20px;
+    border-radius: 10px;
+    margin: 10px;
+    font-weight: bold;
+    border: none;
+    background-color: #4caf50;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .nav-button:hover {
+    background-color: #45a049;
+  }
+  
+nav .nav-button:disabled {
+    background-color: rgb(181, 180, 180);
+    color: rgb(189, 42, 90);
 }
 
 nav .logo-container {
-  width: 170px;
-  margin: 15px;
-
+    width: 170px;
+    margin: 15px;
 }
 
 nav .logo-container .logo {
-  width: 100%;
+    width: 100%;
 }
 
-/* Home Page */
-
+/*-------- Home page --------*/
 .overlay {
-  position: fixed;
-  width: 100vw;
-  height: 100vh;
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    background: linear-gradient(
+            to bottom,
+            rgba(0, 0, 0, 0.65) 0%,
+            rgba(0, 0, 0, 0) 100%
+    )
 }
 
-/* Dashboard */
+.home {
+    margin-top: 30vh;
+}
+
+/*-------- Auth Modal --------*/
+.auth-modal {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 50px;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 360px;
+    height: 600px;
+    background-color: rgb(255, 255, 255);
+    border-radius: 10px;
+    padding: 40px;
+}
+
+.auth-modal .close-icon {
+    float: right;
+}
+
+.auth-modal form {
+    display: flex;
+    flex-direction: column;
+}
+
+.auth-modal input[type=password],
+.auth-modal input[type=email] {
+    padding: 8px;
+    margin: 8px;
+    font-size: 17px;
+}
+
+/*-------- Dashboard  --------*/
+.dashboard {
+    display: flex;
+    justify-content: space-between;
+}
+
+.dashboard .swipe-container {
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
 .swipe {
-  position: absolute;
+    position: absolute;
 }
 
-.card-container {
-  width: 90vw;
-  max-width: 260px;
-  height: 300px;
+.dashboard .card-container {
+    width: 400px;
+    height: 650px;
 }
 
 .card {
-  position: relative;
-  background-color: #fff;
-  width: 80vw;
-  max-width: 260px;
-  height: 300px;
-  box-shadow: 0px 0px 60px 0px rgba(0,0,0,0.30);
-  border-radius: 20px;
-  background-size: cover;
-  background-position: center;
-}
-
-.cardContent {
-  width: 100%;
-  height: 100%;
-}
-
-.swipe:last-of-type {
-
+    width: 400px;
+    height: 650px;
+    border-radius: 30px;
+    background-size: cover;
+    background-position: center;
 }
 
 .card h3 {
-  position: absolute;
-  bottom: 0;
-  margin: 10px;
-  color: #fff;
+    margin-top: 0;
+}
+
+.dashboard .swipe-info {
+    position: absolute;
+    bottom: 0;
+    padding: 10px;
+}
+
+/*-------- Chat Container --------*/
+.chat-container {
+    background-color: rgb(255, 255, 255);
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
+    rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+    width: 30%;
+    text-align: left;
+    z-index: 1;
+}
+
+.chat-container .chat-container-header {
+    background: linear-gradient(45deg, rgb(254, 48, 114), rgb(255, 89, 64));
+    height: 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.chat-container .option {
+    border: none;
+    background-color: rgb(255, 255, 255);
+    border-bottom: solid 4px rgb(243, 33, 33);
+    font-size: 20px;
+    margin: 2px;
+    padding: 10px;
+}
+
+.chat-container .option:disabled {
+    border-bottom: solid 4px rgb(187, 187, 187);
+}
+
+.chat-container .profile,
+.chat-container .log-out-icon {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    color: rgb(255, 255, 255);
+}
+
+.img-container {
+    height: 30px;
+    width: 30px;
+    border-radius: 15px;
+    overflow: hidden;
+    margin: 10px;
+}
+
+.img-container img {
+    width: 100%;
+}
+
+/*-------- Chat Display --------*/
+.chat-display,
+.matches-display {
+    padding: 20px;
+    height: 60vh;
+    overflow-y: auto;
+}
+
+/*-------- Chat Input --------*/
+.chat-input {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+
+/* Onboarding */
+.onboarding {
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #ffffff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.onboarding h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #333333;
+  text-align: center;
+}
+
+.onboarding form {
+  margin-top: 20px;
+}
+
+.onboarding label {
+  font-weight: bold;
+  margin-bottom: 10px;
+  display: block;
+  color: #333333;
+  margin-top: 15px
+}
+
+.onboarding input[type="text"],
+.onboarding input[type="number"],
+.onboarding input[type="url"],
+.onboarding textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #cccccc;
+  border-radius: 4px;
+  margin-bottom: 15px;
+  font-size: 1rem;
+  color: #333333;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.onboarding input[type="checkbox"] {
+  margin-right: 10px;
+}
+
+.onboarding .multiple-input-container {
+  display: flex;
+  margin-bottom: 15px;
+  justify-content: center;
+}
+
+.onboarding .multiple-input-container input[type="radio"] {
+  margin-right: 5px;
+}
+
+.onboarding .photo-container {
+  margin-top: 15px;
+  text-align: center;
+}
+
+.onboarding .photo-container img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 50%;
+}
+
+.onboarding input[type="submit"] {
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  font-size: 1rem;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+.onboarding input[type="submit"]:hover {
+  background-color: #45a049;
+}
+
+.onboarding .note {
+  color: #888888;
+  font-size: 0.9rem;
+  margin-top: 10px;
+  text-align: center;
 }

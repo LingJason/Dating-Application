@@ -1,15 +1,24 @@
-export default function Navbar(props) {
-
+const Nav = ({ authToken, setShowModal, showModal, setIsSignUp }) => {
   const handleClick = () => {
-    props.setShowModal(true);
-    props.setIsSignedUp(false);
-  }
+    setShowModal(true);
+    setIsSignUp(false);
+  };
+
   return (
     <nav>
-    <div className="logo-container"> {/* <img className="logo" src={Logo}/> */} </div>
-    {
-      !props.authToken && <button className="nav-button"
-      onClick={handleClick} disabled={props.showModal}>Login</button>
-  } </nav>
-  )
+      <div className="logo-container">
+        <h2 className="logo">Personality Pair</h2>
+      </div>
+      {!authToken && (
+        <button
+          className="nav-button"
+          onClick={handleClick}
+          disabled={showModal}
+        >
+          Log in
+        </button>
+      )}
+    </nav>
+  );
 };
+export default Nav;

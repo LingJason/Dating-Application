@@ -15,7 +15,7 @@ const Nav = ({ authToken, setShowModal, showModal, setIsSignUp }) => {
           onClick={handleClick}
           disabled={showModal}
         >
-          Log in
+          Login
         </button>
       )}
     </nav>

@@ -1,7 +1,6 @@
 /* Basic Structure */
 /* Uber color #2fbf77 */
 
-
 html, body {
     margin: 0;
     padding: 0;
@@ -18,7 +17,7 @@ h2 {
 
 .primary-title {
     font-size: 90px;
-    color: rgb(255, 255, 255);
+    color: #2fbf77;
 }
 
 .primary-button {
@@ -62,16 +61,17 @@ nav {
 }
 
 .nav-button {
-    font-size: 20px;
-    padding: 10px 20px;
-    border-radius: 10px;
     margin: 10px;
     font-weight: bold;
-    border: none;
-    background-color: #4caf50;
-    color: white;
     cursor: pointer;
     transition: background-color 0.3s ease;
+    color: rgb(255,255,255);
+    text-transform: uppercase;
+    font-size: 15px;
+    background: #2fbf77;
+    padding: 12px 30px;
+    border-radius: 30px;
+    border: none;
   }
   
   .nav-button:hover {
@@ -84,12 +84,13 @@ nav .nav-button:disabled {
 }
 
 nav .logo-container {
-    width: 170px;
+    width: 150px;
     margin: 15px;
 }
 
 nav .logo-container .logo {
     width: 100%;
+    color: #2fbf77;
 }
 
 /*-------- Home page --------*/
@@ -192,7 +193,7 @@ nav .logo-container .logo {
 }
 
 .chat-container .chat-container-header {
-    background: linear-gradient(45deg, rgb(254, 48, 114), rgb(255, 89, 64));
+    background: #2fbf77;
     height: 100px;
     display: flex;
     justify-content: space-between;
@@ -202,7 +203,7 @@ nav .logo-container .logo {
 .chat-container .option {
     border: none;
     background-color: rgb(255, 255, 255);
-    border-bottom: solid 4px rgb(243, 33, 33);
+    border-bottom: solid 4px #2fbf77;
     font-size: 20px;
     margin: 2px;
     padding: 10px;
